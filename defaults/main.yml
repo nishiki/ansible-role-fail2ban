@@ -1,0 +1,9 @@
+fail2ban_blocktype: DROP
+fail2ban_bantime: 600
+fail2ban_findtime: 600
+fail2ban_maxretry: 6
+fail2ban_backend: polling
+fail2ban_usedns: warn
+fail2ban_ignoreip: []
+fail2ban_filters: []
+fail2ban_jails: []

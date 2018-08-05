@@ -1,0 +1,63 @@
+- name: install fail2ban packages
+  apt:
+    name: '{{ item }}'
+    state: present
+  with_items:
+    - fail2ban
+    - whois
+    - bsd-mailx
+  tags: fail2ban
+
+- name: remove default config
+  file:
+    path: /etc/fail2ban/jail.d/defaults-debian.conf
+    state: absent
+  tags: fail2ban
+
+- name: copy main configuration
+  template:
+    src: jail.conf.j2
+    dest: /etc/fail2ban/jail.conf
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart fail2ban
+  tags: fail2ban
+
+- name: copy iptables blocktype configuration
+  template:
+    src: iptables-blocktype.conf.j2
+    dest: /etc/fail2ban/action.d/iptables-blocktype.conf
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart fail2ban
+  tags: fail2ban
+
+- name: copy fail2ban filters
+  template:
+    src: filter.conf.j2
+    dest: '/etc/fail2ban/filter.d/{{ item.name }}.conf'
+    owner: root
+    group: root
+    mode: 0644
+  with_items: '{{ fail2ban_filters }}'
+  notify: restart fail2ban
+  tags: fail2ban
+
+- name: copy jails file
+  template:
+    src: 'jails.conf.j2'
+    dest: '/etc/fail2ban/jail.d/jails.conf'
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart fail2ban
+  tags: fail2ban
+
+- name: enable and start fail2ban
+  service:
+    name: fail2ban
+    enabled: yes
+    state: started
+  tags: fail2ban

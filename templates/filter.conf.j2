@@ -1,0 +1,7 @@
+; {{ ansible_managed }}
+[INCLUDES]
+before = common.conf
+
+[Definition]
+failregex = {{ item.failregex }}
+ignoreregex = {{ item.ignoreregex|default('') }}

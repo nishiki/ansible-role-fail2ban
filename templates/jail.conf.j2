@@ -1,0 +1,33 @@
+; {{ ansible_managed }}
+[DEFAULT]
+
+ignoreip = 127.0.0.1/8{% for ip in fail2ban_ignoreip %} {{ ip }}{% endfor %}
+ignorecommand =
+
+bantime = {{ fail2ban_bantime }}
+findtime = {{ fail2ban_findtime }}
+maxretry = {{ fail2ban_maxretry }}
+backend = {{ fail2ban_backend }}
+usedns = {{ fail2ban_usedns }}
+
+{% if fail2ban_mail is defined %}
+destemail = {{ fail2ban_mail.destmail }}
+sendername = {{ fail2ban_mail.sendername|default('Fail2Ban') }}
+sender = {{ fail2ban_mail.sender_mail }}
+mta = {{ fail2ban_mail.mta|default('mail') }}
+
+{% endif %}
+banaction = iptables-multiport
+protocol = tcp
+chain = INPUT
+action_ = %(banaction)s[name=%(__name__)s, port="%(port)s", protocol="%(protocol)s", chain="%(chain)s"]
+action_mw = %(banaction)s[name=%(__name__)s, port="%(port)s", protocol="%(protocol)s", chain="%(chain)s"]
+{% if fail2ban_mail is defined %}
+            %(mta)s-whois[name=%(__name__)s, dest="%(destemail)s", protocol="%(protocol)s", chain="%(chain)s", sendername="%(sendername)s"]
+
+{% endif %}
+action_mwl = %(banaction)s[name=%(__name__)s, port="%(port)s", protocol="%(protocol)s", chain="%(chain)s"]
+{% if fail2ban_mail is defined %}
+             %(mta)s-whois-lines[name=%(__name__)s, dest="%(destemail)s", logpath=%(logpath)s, chain="%(chain)s", sendername="%(sendername)s"]
+{% endif %}
+action = %(action_mw)s

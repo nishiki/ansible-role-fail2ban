@@ -1,0 +1,6 @@
+; {{ ansible_managed }}
+[INCLUDES]
+after = iptables-blocktype.local
+
+[Init]
+blocktype = {{ fail2ban_blocktype }}

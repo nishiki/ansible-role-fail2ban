@@ -1,0 +1,19 @@
+- hosts: fail2ban
+  connection: local
+  vars:
+    fail2ban_jails:
+      - name: ssh
+        logpath: /var/log/alternatives.log
+        filter: sshd
+        port: 22
+      - name: nextcloud
+        logpath: /var/log/alternatives.log
+        filter: nextcloud
+        port: 80,443
+        additional:
+          maxretry: 2
+    fail2ban_filters:
+      - name: nextcloud
+        failregex: Login failed.*Remote IP.*'<HOST>' 
+  roles:
+      - ansible-role-fail2ban

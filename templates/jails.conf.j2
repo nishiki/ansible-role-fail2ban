@@ -1,0 +1,14 @@
+; {{ ansible_managed }}
+{% for jail in fail2ban_jails %}
+
+[{{ jail.name }}]
+enabled = true
+logpath = {{ jail.logpath }}
+port = {{ jail.port }}
+filter = {{ jail.filter }}
+{% if jail.additional is defined %}
+{% for option, value in jail.additional.iteritems() %}
+{{ option }} = {{ value }}
+{% endfor %}
+{% endif %}
+{% endfor %}
