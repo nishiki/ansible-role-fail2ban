@@ -2,6 +2,11 @@ require 'serverspec'
 
 set :backend, :exec
 
+puts
+puts '================================'
+puts %x(ansible --version)
+puts '================================'
+
 describe package('fail2ban') do
   it { should be_installed }
 end

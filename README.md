@@ -1,5 +1,6 @@
 # Ansible role: Fail2ban
 [![Version](https://img.shields.io/badge/latest_version-1.0.0-green.svg)](https://git.yaegashi.fr/nishiki/ansible-role-fail2ban/releases)
+[![Build Status](https://travis-ci.org/nishiki/ansible-role-fail2ban.svg?branch=master)](https://travis-ci.org/nishiki/ansible-role-fail2ban)
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](https://git.yaegashi.fr/nishiki/ansible-role-fail2ban/src/branch/master/LICENSE)
 
 Install and configure Fail2ban
