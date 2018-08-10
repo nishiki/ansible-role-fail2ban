@@ -1,0 +1,17 @@
+galaxy_info:
+  author: Adrien Waksberg
+  description: Install and configure fail2ban
+  license: Apache2
+  min_ansible_version: 2.2
+
+  platforms:
+    - name: Debian
+      versions:
+        - stretch
+
+  galaxy_tags:
+    - fail2ban
+    - iptables
+    - security
+
+dependencies: []
