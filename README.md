@@ -7,7 +7,8 @@ Install and configure Fail2ban
 
 ## Requirements
 
-None
+* Ansible >= 2.2
+* Debian Stretch
 
 ## Role variables
 
@@ -17,11 +18,14 @@ None
 * `fail2ban_maxretry` - default max retry before a ban (default: `6`)
 * `fail2ban_ignoreip` - array with the ips ignored
 * `fail2ban_filters` - array with custom filters
+
 ```
   - name: web
     failregex: Login failed.*Remote IP.*'<HOST>' 
 ```
-* `fail2ban_jails` -  array with the modules to enable
+
+* `fail2ban_jails` -  array with the jails to enable
+
 ```
   - name: web
     logpath: /var/log/web.log
@@ -35,6 +39,7 @@ None
 ## How to use
 
  * Install:
+
 ```
 - hosts: server
   roles:
@@ -44,11 +49,11 @@ None
 ## Development
 ### Tests with docker
 
-  * install [docker](https://docs.docker.com/engine/installation/)
-  * install ruby
-  * install bundler `gem install bundler`
-  * install dependencies `bundle install`
-  * run the tests `kitchen test`
+* install [docker](https://docs.docker.com/engine/installation/)
+* install ruby
+* install bundler `gem install bundler`
+* install dependencies `bundle install`
+* run the tests `kitchen test`
 
 ## License
 
