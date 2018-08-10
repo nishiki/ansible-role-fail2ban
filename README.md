@@ -16,11 +16,14 @@ None
 * `fail2ban_maxretry` - default max retry before a ban (default: `6`)
 * `fail2ban_ignoreip` - array with the ips ignored
 * `fail2ban_filters` - array with custom filters
+
 ```
   - name: web
     failregex: Login failed.*Remote IP.*'<HOST>' 
 ```
+
 * `fail2ban_jails` -  array with the modules to enable
+
 ```
   - name: web
     logpath: /var/log/web.log
@@ -34,6 +37,7 @@ None
 ## How to use
 
  * Install:
+
 ```
 - hosts: server
   roles:
