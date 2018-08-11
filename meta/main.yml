@@ -1,4 +1,5 @@
 galaxy_info:
+  role_name: fail2ban
   author: Adrien Waksberg
   description: Install and configure fail2ban
   license: Apache2
