@@ -2,6 +2,7 @@
 [DEFAULT]
 
 ignoreip = 127.0.0.1/8{% for ip in fail2ban_ignoreip %} {{ ip }}{% endfor %}
+
 ignorecommand =
 
 bantime = {{ fail2ban_bantime }}
