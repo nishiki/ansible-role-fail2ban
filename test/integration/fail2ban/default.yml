@@ -1,3 +1,4 @@
+---
 - hosts: fail2ban
   connection: local
   vars:
@@ -14,6 +15,6 @@
           maxretry: 2
     fail2ban_filters:
       - name: nextcloud
-        failregex: Login failed.*Remote IP.*'<HOST>' 
+        failregex: Login failed.*Remote IP.*'<HOST>'
   roles:
-      - ansible-role-fail2ban
+    - ansible-role-fail2ban

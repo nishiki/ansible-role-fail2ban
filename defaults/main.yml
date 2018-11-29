@@ -1,3 +1,4 @@
+---
 fail2ban_blocktype: DROP
 fail2ban_bantime: 600
 fail2ban_findtime: 600

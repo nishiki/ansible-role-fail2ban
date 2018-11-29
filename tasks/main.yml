@@ -1,3 +1,4 @@
+---
 - name: install fail2ban packages
   apt:
     name: '{{ item }}'
