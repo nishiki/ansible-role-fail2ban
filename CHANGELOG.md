@@ -1,4 +1,10 @@
 # CHANGELOG
+
+This project adheres to [Semantic Versioning](http://semver.org/).
+Which is based on [Keep A Changelog](http://keepachangelog.com/)
+
+## [Unreleased]
+
 ## v1.0.1 (2018-08-28)
 
 * feat: push in ansible galaxy
