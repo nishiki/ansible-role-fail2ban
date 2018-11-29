@@ -5,6 +5,7 @@ Which is based on [Keep A Changelog](http://keepachangelog.com/)
 
 ## [Unreleased]
 * test: add ansible-lint
+* test: add yamllint
 
 ## v1.0.1 (2018-08-28)
 
