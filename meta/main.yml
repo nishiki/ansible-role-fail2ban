@@ -5,7 +5,7 @@ galaxy_info:
   company: Adrien Waksberg
   description: Install and configure fail2ban
   license: Apache2
-  min_ansible_version: 2.4
+  min_ansible_version: 2.5
 
   platforms:
     - name: Debian

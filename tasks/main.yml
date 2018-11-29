@@ -1,12 +1,13 @@
 ---
 - name: install fail2ban packages
   apt:
-    name: '{{ item }}'
+    name: '{{ packages }}'
     state: present
-  with_items:
-    - fail2ban
-    - whois
-    - bsd-mailx
+  vars:
+    packages:
+      - fail2ban
+      - whois
+      - bsd-mailx
   tags: fail2ban
 
 - name: remove default config
@@ -42,7 +43,7 @@
     owner: root
     group: root
     mode: 0644
-  with_items: '{{ fail2ban_filters }}'
+  loop: '{{ fail2ban_filters }}'
   notify: restart fail2ban
   tags: fail2ban
 

@@ -7,7 +7,7 @@ Install and configure Fail2ban
 
 ## Requirements
 
-* Ansible >= 2.4
+* Ansible >= 2.5
 * Debian Stretch
 
 ## Role variables
