@@ -8,6 +8,10 @@
       - fail2ban
       - whois
       - bsd-mailx
+  register: result
+  retries: 3
+  delay: 1
+  until: result is success
   tags: fail2ban
 
 - name: remove default config
