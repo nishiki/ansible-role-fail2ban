@@ -4,6 +4,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 Which is based on [Keep A Changelog](http://keepachangelog.com/)
 
 ## [Unreleased]
+
+## v1.1.0 (2019-01-31)
 * break: change with_items to loop 
 * test: add test with ansible 2.7
 * test: add ansible-lint
